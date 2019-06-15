@@ -1,0 +1,141 @@
+#include <Wire.h>
+int val11;
+float val2;
+int val;
+int num[9];
+int pin0 = 0;
+int pin1 = 1;
+int pin2 = 2;
+int pin3 = 3;
+int pin4 = 4;
+int pin5 = 5;
+int pin6 = 6;
+int pin7 = 7;
+int pin8 = 8;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(pin0,OUTPUT);
+  pinMode(pin1,OUTPUT);
+  pinMode(pin2,OUTPUT);
+  pinMode(pin3,OUTPUT);
+  pinMode(pin4,OUTPUT);
+  pinMode(pin5,OUTPUT);
+  pinMode(pin6,OUTPUT);
+  pinMode(pin7,OUTPUT);
+  pinMode(pin8,OUTPUT);
+  
+  Serial.println("Voltage: ");
+}
+void loop()
+{
+      float temp;
+      val11=analogRead(1);
+      temp=val11/4.092;
+      val2=(temp/10);
+      val = val2*100;
+      //Serial.println("Voltage: ");
+      Serial.print("V= ");
+      Serial.print(val2);
+      Serial.print("   ");
+        num[0] = val%2;
+        val = val/2;
+        num[1] = val%2;
+        val = val/2;
+        num[2] = val%2;
+        val = val/2;
+        num[3] = val%2;
+        val = val/2;
+        num[4] = val%2;
+        val = val/2;
+        num[5] = val%2;
+        val = val/2;
+        num[6] = val%2;
+        val = val/2;
+        num[7] = val%2;
+        val = val/2;
+        if(num[0]==1)
+        {
+          digitalWrite(pin0,HIGH);
+        }
+        else
+        {
+          digitalWrite(pin0,LOW);
+        }
+
+        if(num[1]==1)
+        {
+          digitalWrite(pin1,HIGH);
+        }
+        else
+        {
+          digitalWrite(pin1,LOW);
+        }
+
+        if(num[2]==1)
+        {
+          digitalWrite(pin2,HIGH);
+        }
+        else
+        {
+          digitalWrite(pin2,LOW);
+        }
+
+        if(num[3]==1)
+        {
+          digitalWrite(pin3,HIGH);
+        }
+        else
+        {
+          digitalWrite(pin3,LOW);
+        }
+
+        if(num[4]==1)
+        {
+          digitalWrite(pin4,HIGH);
+        }
+        else
+        {
+          digitalWrite(pin4,LOW);
+        }
+
+        if(num[5]==1)
+        {
+          digitalWrite(pin5,HIGH);
+        }
+        else
+        {
+          digitalWrite(pin5,LOW);
+        }
+
+        if(num[6]==1)
+        {
+          digitalWrite(pin6,HIGH);
+        }
+        else
+        {
+          digitalWrite(pin6,LOW);
+        }
+
+        if(num[7]==1)
+        {
+          digitalWrite(pin7,HIGH);
+        }
+        else
+        {
+          digitalWrite(pin7,LOW);
+        }
+
+        Serial.println();
+        Serial.print(num[7]);
+        Serial.print(num[6]);
+        Serial.print(num[5]);
+        Serial.print(num[4]);
+        Serial.print(num[3]);
+        Serial.print(num[2]);
+        Serial.print(num[1]);
+        Serial.print(num[0]);
+        Serial.println();
+   delay(1000);
+   
+}
