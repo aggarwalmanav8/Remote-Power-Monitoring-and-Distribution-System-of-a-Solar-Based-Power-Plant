@@ -1,0 +1,56 @@
+#include <SoftwareSerial.h>
+SoftwareSerial mySerial(6,7);
+
+//----Global variables for the pins---//
+int pin1 = 6;
+int pin2 = 7;
+
+//Initialise for the Arduino setup for OUTPUT to the pins designated as ints
+void setup()
+{
+ Serial.begin(9600);
+ pinMode(pin1,OUTPUT);
+ pinMode(pin2,OUTPUT);
+ digitalWrite(pin1,LOW);
+ digitalWrite(pin2,LOW);
+ }
+
+void loop()
+{
+ 
+ if (Serial.available()) {
+   
+   delay(100);
+   
+while(Serial.available() > 0){
+ {
+   if((Serial.read())=='1')
+   {
+     if(digitalRead(pin1)==LOW)
+      {
+       digitalWrite(pin1,HIGH);
+       Serial.println("TURNED OFF Relay 1");
+      }
+     else
+     {
+     digitalWrite(pin1,LOW);
+     Serial.println("TURNED ON Relay 1");
+     }
+   }
+     else if((Serial.read())=='2')
+     {
+       if(digitalRead(pin2)==LOW)
+       {
+         digitalWrite(pin2,HIGH);
+         Serial.println("Turned OFF Relay 2");
+       }
+       else
+       {
+         digitalWrite(pin2,LOW);
+         Serial.println("Turned ON Relay 2");
+       }
+    }
+    }
+    }
+    }
+    }
